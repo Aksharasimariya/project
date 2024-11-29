@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        tailwind.config = {
+            theme: {
+        extend: {
+    screens: {
+      'xs': '576px',
+      'sm':'640px',
+      'md': '768px',
+      'lg':'1024px',
+      'xl':'1280px'
+
+      // => @media (min-width: 992px) { ... }
+             },
+         },
+        },
+        } 
+    </script>
+    <style>
+        nav{
+         background-color: white;
+         height: 50px;        
+        }
+        nav ul{
+        
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size:large;
+            font-weight:600;
+             }
+         
+        nav a{
+            padding:0 5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            color: black;
+        }
+        nav a:hover{
+            background-color: rgb(149, 149, 200);
+        }
+        .sidebar{
+            position: fixed;
+            top:0;
+            right: 0;
+            height: 100vh;
+            width: 250px;
+            z-index: 999;
+            background-color: rgba(247, 240, 240, 0.47);
+            backdrop-filter: blure(10px);
+            box-shadow: -10px 0 10px  rgba(0,0,0,0.1);
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        
+        @media(max-width: 576px){
+            .hideonmobile{
+                display:none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#ffffff]">
+
+    <nav class=" xs:w-[100%] xs:h-[60px] flex justify-between px-10">
+        <img src="../images/logo-retina.png" class=" size-8 mt-2 xs:size-12 w-28 xs:w-32 xs:ml-4 xl:ml-9">
+        <ul class="sidebar xs:text-2xl">
+            <li onclick=hidesidebar()><a href="#"><i class="fa-sharp fa-solid fa-xmark size-7 "></i></a>
+            <li><a href="#">Home</a></li>
+            <li><a href="../src/about-page.html">About Us</a></li>
+            <li><a href="../src/contact-page.html">Contact</a></li>
+        </ul>
+        <ul  class=" flex-row justify-between hidden md:flex">
+            
+            <li class="hideonmobile"><a href="#">Home</a></li>
+            <li class="hideonmobile"><a href="about-page.html">About Us</a></li>
+            <li class="hideonmobile"><a href="contact-page.html">Contact</a></li>
+        
+        </ul>
+        <i onclick=showsidebar() class="fa-solid fa-bars text-[25px] mt-2 xs:text-2xl xs:mt-3 md:hidden "></i>
+            <div class="hidden md:block xs:mt-3 xs:text-xl xl:mr-9"> 
+                <i class="fa-solid fa-user xs:mr-3"></i>
+                <span class="font-bold ">0.00</span>
+                <i class="fa-solid fa-bag-shopping"></i>
+            </div>
+        </div>  
+    </nav>
+
+        
+        <div class="ml-5 mr-5">
+            <div class="hero w-[560px] xs:w-full h-72 xs:h-64 bg-[url('../images/bg-06.jpg')] bg-center bg-cover bg-no-repeat xl:h-[500px]" >       
+               <div class="content pt-28 pl-9 lg:pl-20 xl:pt-[200px] xl:pl-[150px] ">
+                  <h2 class="text-[10px] pl-2 text-[#fefdfe] md:text-[15px] ">CET IN TOUCH</h2>
+                  <h1 class="text-4xl text-[#fefdfe] md:text-[40px] md:mt-1 lg:text-[50px] lg:mt-2 xl:text-[53px] xl:mt-4">Message Us</h1>
+               </div>
+            </div>  
+        </div>   
+        
+        
+        <div class=" xs:w-1\2 h-20 flex flex-row justify-between md:ml-12 ml-9 xs:ml-6">
+         <div class="md:mt-8 mt-10 xs:mt-20 mr-6 lg:ml-7 xl:ml-24 xl:mt-16 md:w-[700px]">
+            <h1 class="text-xl xl:text-2xl">Contact Us</h1>
+            <h1 class="text-[10px] xl:text-[13px] mt-3 ">Lorem i sum dolor sit amet, consectetur</h1>
+            <h1 class="text-[10px] xl:text-[13px]">dipiscing elit. Ut id leo tempor, congue justo</h1>
+            <h5 class="text-[10px] xl:text-[13px]">at, lobortis orci.</h5>
+
+                 <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-location-dot text-[8px] xl:text-[10px] "></i>
+                  <div>
+                      <h3  class="text-[10px] font-medium mt-3 xl:text-[13px]">123 Fifth Avenue, New York, NY</h3>
+                      <h3 class="text-[10px] font-medium">10160</h3>
+                  </div>
+                </div>
+        
+                <div class="flex items-end gap-2">
+                    <i class="fa-solid fa-envelope text-[8px] xl:text-[10px] "></i>
+                    <div>
+                        <h3 class="text-[10px] font-medium mt-3 xl:text-[13px]">contact@info.com</h3>
+                    </div>
+                  </div>
+                 
+                  <div class="flex items-end gap-2">
+                    <i class="fa-solid fa-phone  text-[8px] xl:text-[10px]"></i>
+                    <div>
+                        <h3 class="text-[10px] font-medium mt-5 xl:text-[13px]">9-334-7565-9787</h3>
+                    </div>
+                  </div>
+             </div>
+    
+          <div class="md:w-[600px] w-1\2 h-72 mt-4 mr-5 border-white bg-[#f6edf0] mr-3 lg:w-[600px] xl:w-[600px] xl:h-[300px] ">
+            <div class="ml-7 xl:ml-20 xl:mt-10">
+            <form action="" method="" class="pt-4">
+                name:-   
+               <br> <input class="mb-3" type="text" name="" placeholder="Enter your first name" id="some" /> 
+               <input class="" type="text" name="" placeholder="Enter your Last name" id="some" />
+               <br> Email:- 
+               <br> <input class="mb-3" type="email"name="" id="" placeholder="Enter your email" required />  
+               <br> Massage:- 
+               <br> <textarea  class="mb-3" type="text" name="addinfo"  id="addinfo" placeholder="optional"> </textarea>
+               <br> <input class="" type="button" name="" id="" value=""/>
+               <button class="bg-black text-white">SEND</button>
+            </form>
+        </div>
+        </div>
+        </div>
+        <div class=" mt-64 ">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5466494885964!2d-0.12209412349734793!3d51.50318637181233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900d26973%3A0x4291f3172409ea92!2slastminute.com%20London%20Eye!5e0!3m2!1sen!2sin!4v1732545470314!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"  class=" md:w-[750px] md:ml-2 lg:w-[1000px] xl:w-[1250px] xl:ml-4 2xl:w-[1500px] 2xl:ml-2"></iframe>        
+         </div>
+     
+         <div class="ml-6 xs:ml-7 xs:mr-5 lg:ml-3 lg:mr-3 md:ml-3 md:mr-3 ">
+            <div class="w-[550px] h-80 bg-[#f6edf0] border-[#ebdde2] border-1 mt-9 lg:mt-6 md:w-[700px] lg:w-[1000px] xl:w-[1250px]">
+               <div class="ml-5"> 
+                   <h1 class="text-2xl">Subscribe to our newsletter</h1>
+               </div>
+               <hr class="w-full h-0.5 bg-[#e9d2d9] mt-3">
+               <div>
+                   <img src="/images/logo-retina.png" class="w-24 h-16 mt-10 ml-6 xl:ml-12">
+               </div>
+               <div class="flex flex-row gap-16 ml-48 md:ml-64 md:gap-24 lg:ml-[550px] xl:ml-[650px] xl:gap-36">
+                   <div class="mt-[-55px] text-sm xl:text-[17px] ">
+                   <ul>
+                       <li>Shop All</li>
+                       <li>Makeup</li>                             
+                       <li>Skin Care</li>
+                       <li>Hair Care</li>
+                       <li>About</li>
+                       <li>Contact</li>
+                   </ul>
+               </div>
+               <div class="mt-[-55px] text-sm xl:text-[15px]">
+                   <ul>                                                  
+                       <li>Refund Policy</li>
+                       <li>Terms & Conditions</li>
+                       <li>FAQ</li>
+                       <li>Privacy Policy</li>
+                   </ul>
+               </div>
+               
+               <div class="mt-[-55px] text-sm xl:text-[17px] flex gap-3 pr-3">
+                   <i class="fa-brands fa-square-facebook"></i>
+                   <i class="fa-brands fa-twitter"></i>
+                   <i class="fa-brands fa-square-instagram"></i>
+               </div>
+            </div>
+               
+           
+           <hr class="w-full h-0.5 bg-[#e9d2d9] mt-3">
+           <div>
+               <h4 class="[#text-ae9283] ml-5 mt-4 text-sm ">Copyright @ 2022 Be Bold | Powered by Be Bold</h4>
+           </div> 
+       </div>
+       </div>
+    </body>
+    </html>

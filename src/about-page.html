@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        tailwind.config = {
+            theme: {
+        extend: {
+    screens: {
+      'xs': '576px',
+      'sm':'640px',
+      'md': '768px',
+      'lg':'1024px',
+      'xl':'1280px'
+    
+      // => @media (min-width: 992px) { ... }
+             },
+         },
+        },
+        } 
+    </script>     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        nav{
+         background-color: white;
+         height: 50px;        
+        }
+        nav ul{
+        
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size:large;
+            font-weight:600;
+             }
+         
+        nav a{
+            padding:0 5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            color: black;
+        }
+        nav a:hover{
+            background-color: rgb(149, 149, 200);
+        }
+        .sidebar{
+            position: fixed;
+            top:0;
+            right: 0;
+            height: 100vh;
+            width: 250px;
+            z-index: 999;
+            background-color: rgba(247, 240, 240, 0.47);
+            backdrop-filter: blure(10px);
+            box-shadow: -10px 0 10px  rgba(0,0,0,0.1);
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        
+        @media(max-width: 576px){
+            .hideonmobile{
+                display:none;
+            }
+        }
+    </style>
+    
+</head>
+<body class="bg-[#ffffff]">
+
+    <nav class=" xs:w-[100%] xs:h-[60px] flex justify-between px-10">
+        <img src="../images/logo-retina.png" class=" size-8 mt-2 xs:size-12 w-32 xs:ml-4 xl:ml-9">
+        <ul class="sidebar xs:text-2xl">
+            <li onclick=hidesidebar()><a href="#"><i class="fa-sharp fa-solid fa-xmark size-7 "></i></a>
+            <li><a href="#">Home</a></li>
+            <li><a href="../src/about-page.html">About Us</a></li>
+            <li><a href="../src/contact-page.html">Contact</a></li>
+        </ul>
+        <ul  class=" flex-row justify-between hidden md:flex">
+            
+            <li class="hideonmobile"><a href="#">Home</a></li>
+            <li class="hideonmobile"><a href="about-page.html">About Us</a></li>
+            <li class="hideonmobile"><a href="contact-page.html">Contact</a></li>
+        
+        </ul>
+        <i onclick=showsidebar() class="fa-solid fa-bars text-[25px] mt-2 xs:text-2xl xs:mt-3 md:hidden "></i>
+            <div class="hidden md:block xs:mt-3 xs:text-xl xl:mr-9"> 
+                <i class="fa-solid fa-user xs:mr-3"></i>
+                <span class="font-bold ">0.00</span>
+                <i class="fa-solid fa-bag-shopping"></i>
+            </div>
+        </div>  
+    </nav>
+
+   
+      <div class="ml-5 mr-5">
+      <div class="hero w-full h-64 bg-[url('../images/bg-05.jpg')] bg-center bg-cover bg-no-repeat xl:h-[500px]" > 
+       <div class="content pt-28 pl-9 lg:pl-20 xl:pt-[200px] xl:pl-[150px] ">
+        <h2 class="text-[10px] pl-2 text-[#fefdfe] md:text-[15px] ">A few Words</h2>
+        <h1 class="text-4xl text-[#fefdfe] md:text-[40px] md:mt-1 lg:text-[50px] lg:mt-2 xl:text-[53px] xl:mt-4">About Us</h1>
+     </div>
+     <div class="flex">
+        <div class=" ml-2 pt-36 lg:ml-4 xl:pt-96 xl:ml-12">
+            <h1 class="text-sm xs:text-2xl lg:text-3xl">Lorem ipsum dolor sit</h1>
+            <h1 class="text-sm xs:text-2xl lg:text-3xl">amet, consectetur</h1>
+            <h1 class="text-sm xs:text-2xl lg:text-3xl">adipiscing elit.</h1>
+            <h5 class="text-[10px] xs:text-2xl lg:text-xl mt-4">Lorem ipsum dolor sit amet. consectetur adipiscinq elit.</h5>
+            <hr class="w-14 h-0.5 ml-3 bg-[#e9d2d9]  mt-6 lg:w-20 lg:ml-3 xl:mt-9 xl:ml-0">
+        </div>
+     
+     <div class="w-[600px] border-white bg-[#f6edf0] text-left pl-8 mt-16 pb-5 mr-3 lg:w-[500px] lg:pl-[100px] lg:ml-24 lg:pt-10 lg:mr-4 xl:w-[650px] xl:mt-[200px]">
+           <h1 class="text-[10px] xs:text-[15px] font-semibold xl:text-[22px] ">Cras ut ultricies risus. Etiam ac malesuada</h1>
+           <h1 class="text-[10px] xs:text-[15px] font-semibold xl:text-[22px]"> lectus. Sed congue nisi vitae lorem</h1>
+           <h1 class="text-[10px] xs:text-[15px] font-semibold xl:text-[22px]"> ullamcorper laoreet. In eget tellus mauris.</h1>
+           <h1 class="text-[10px] xs:text-[15px] font-semibold xl:text-[22px]"> Phasellus id ligula.</h1>
+           
+           <h3 class="text-[9px] xs:text-[11px] pt-4 xl:text-[17px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit- Sed</h3>
+           <h3 class="text-[9px] xs:text-[11px] xl:text-[17px]">rhoncus eget enim eget tincidunt. In finibus nisi ex. eu</h3>
+           <h3 class="text-[9px] xs:text-[11px] xl:text-[17px]">interdum urna euismod sit amet. Morbi sollicitudin in</h3>
+           <h3 class="text-[9px] xs:text-[11px] xl:text-[17px]">bibendum nibh consectetur quis. Curabitur tortor dolor,</h3>
+           <h3 class="text-[9px] xs:text-[11px] xl:text-[17px]">fringilla eu fringilla id. dignissim in urna.</h3>
+
+           <h3 class="text-[11px] pt-4 xl:text-[17px]">Morbi sollicitudin in magna sed tristique. Nulla pharetra</h3>
+           <h3 class="text-[11px] xl:text-[17px]">sapien eros, sit amet bibendum nibh consectetur quis.</h3>
+           <h3 class="text-[11px] xl:text-[17px]">Curabitur tortor dolor, fringilla eu fringilla id.</h3> 
+        </div>
+     </div>
+    </div>
+     </div>
+    </div>
+    </header>
+     <div class="ml-5 mr-5">
+     <div class=" w-full h-[350px] bg-[url('../images/bg-04.jpg')] bg-center bg-cover bg-no-repeat mt-72 xs:mt-80 lg:h-[500px] lg:mt-[350px] xl:mt-[450px] xl:h-[650px]">
+        <div class="text-[#fbf8fa] text-center pt-48 lg:pt-[350px] lg:pb-5 xl:pt-[450px]">
+            <h1 class="text-xl lg:text-[33px]">About Our Products</h1>
+            <hr class="w-14 h-0.5 ml-[240px] font-extrabold bg-[#e9d2d9] mt-4 md:ml-[340px] lg:ml-[460px] xl:ml-[580px]">
+            <h3 class="text-sm mt-2 lg:text-xl">Proin at velit sed elit varius porttitor. Ut a suscipit quam, eu congue odio. Sed</h3>
+            <h3 class="text-sm lg:text-xl">eget viverra est. Vivamus ut sodales neque. Sed vel dui et dolor placerat egestas</h3>
+            <h3 class="text-sm lg:text-xl">id lacinia mauris</h3>
+        </div>
+     </div>
+    </div>
+    
+    <div class=" md:pl-2 md:pr-2 flex">
+        <div>
+            <img src="../images/about-01.jpg" class=" w-[400px] md:w-[600px] h-[300px] lg:w-[400px] lg:h-[500px] sm:mt-2 mt-4 ml-3 xl:h-[480px]">
+        </div>
+        <div class=" w-[200px] h-[300px] lg:w-[700px] xl:w-[840px] lg:h-[500px] md:pl-5 bg-[#f6edf0] sm:mt-1 xs:mt-4 text-right pt-5 pr-6 mr-3 md:mt-2 lg:pt-40 lg:pr-16 xl:pt-24 ">
+            <h5 class="text-[5px] xs:text-[10px] sm:text-[10px] lg:text-[13px] xl:text-[16px] ">ABOUT Me</h5>
+            <h1 class="text-sm xs:text-2xl pt-1  sm:text-[10px] lg:text-[45px] xl:text[45px]">Hi, I'm Diana!</h1>
+            <h4 class="text-[5px] sm:text-[7px] lg:text-xl xs:text-sm lg:pt-2 xl:text-[15px]">I'm a 32 years old women entrepreneur,</h4>
+            <h4 class="text-[5px] sm:text-[7px] lg:text-xl xs:text-sm xl:text-[15px]">living in Miami, Florida</h4>
+            <hr class="w-14 h-0.5 ml-[240px] font-extrabold  bg-[#e9d2d9]">
+
+            <h4 class="text-[10px] sm:text-[6px] lg:text-sm xl:text-[15px] pt-4 xl:pt-6">Sed ut fringilla dolor. Morbi suscipit a nunc eu finibus. Nam</h4>
+            <h4 class="text-[10px] sm:text-[6px] lg:text-sm xl:text-[15px]">rutrum mattis velit eget volutpat. Fusce egestas mi urna, id</h4>
+            <h4 class="text-[10px] sm:text-[6px] lg:text-sm xl:text-[15px]">pulvinar ipsum dictum eget. Mauris in dolor velit. Vestibulum</h4>
+            <h4 class="text-[10px] sm:text-[6px] lg:text-sm xl:text-[15px]">finibus felis non massa commodo molestie at id justo. Quisque</h4>
+            <h4 class="text-[10px] sm:text-[6px] lg:text-sm xl:text-[15px]">sollicitudin elit sit amet facilisis euismod. Fusce at arcu sed.</h4>
+            <h4 class="text-[10px] sm:text-[6px] lg:text-sm xl:text-[15px] pt-4 xl:pt-6">Nam rutrum mattis velit eget volutpat. Fusce egestas mi urna,</h4>
+            <h4 class="text-[10px] sm:text-[6px] lg:text-sm xl:text-[15px]">id pulvinar ipsum dictum eget.</h4>
+        </div>
+    </div>
+
+    <div class="flex flex-row ">
+        <div >
+            <h3 class="text-[8px] mt-10 xs:text-[10px] ml-3 lg:text-[20px]  lg:ml-7 text-gray-500 xs:text-[#acaab0]">WHY CHOOSE US</h3>
+            <hr class="w-14 h-0.5 ml-3 bg-[#e9d2d9] mt-3 lg:w-20 lg:ml-5 ">
+        </div>
+    
+            <div class="flex ml-1 xs:ml-4 lg:ml-16 xl:ml-32  ">
+                <div class= "mt-10 w-8 h-8 border-white border-2 bg-[#cd9cb2] rounded-full">
+                    <i class="fa-solid fa-truck text-[10px] text-white mt-2 ml-1"></i>
+                </div>
+                <div class="ml-2 mt-7 mr-2 ">
+                    <h1 class="text-[11px] xs:text-xl mt-3">Fast Delivery</h1>
+                    <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">Lorem ipsum dolor sit amet,</h4>
+                    <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">consectetur adipiscing elit. Ut</h4>
+                    <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">elit tellus, luctus nec</h4>
+                    <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">ullamcorper mattis.</h4>
+                </div>
+            </div>
+    
+            <div class="flex lg:ml-10 xl:ml-20">
+                <div class= "mt-10 w-8 h-8 border-white border-2 bg-[#cd9cb2] rounded-full">
+                    <i class="fa-solid fa-cart-flatbed text-[10px] text-white mt-2 ml-1"></i>
+                </div>
+                <div class="ml-2 mt-7 mr-2">
+                    <h1 class="text-[11px] xs:text-xl mt-3">Free Shipping</h1>
+                    <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">Lorem ipsum dolor sit amet,</h4>
+                    <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">consectetur adipiscing elit. Ut</h4>
+                    <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">elit tellus, luctus nec</h4>
+                    <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">ullamcorper mattis.</h4>
+                </div>
+            </div>
+    
+            <div class="flex lg:ml-10 xl:ml-20">
+                <div class= "mt-10 w-8 h-8 border-white border-2 bg-[#cd9cb2] rounded-full">
+                    <i class="fa-solid fa-left-long text-[10px] text-white mt-2 ml-1"></i>
+                </div>
+                <div class="ml-2 mt-7 mr-2">
+                    <h1 class="text-[11px] xs:text-xl mt-3">Easy Returns</h1>
+                    <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">Lorem ipsum dolor sit amet,</h4>
+                    <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">consectetur adipiscing elit. Ut</h4>
+                    <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">elit tellus, luctus nec</h4>
+                    <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">ullamcorper mattis.</h4>
+                </div>
+            </div>
+         </div>
+
+         <div class="ml-5 mr-5">
+            <div class="w-full h-72 bg-[#f6edf0] border-[#ebdde2] border-1 mt-9 ">
+               <div class="ml-5">
+                   <h1 class="text:sm xs:text-2xl">Subscribe to our newsletter</h1>
+               </div>
+               <hr class="w-full h-0.5 bg-[#e9d2d9] mt-3">
+               <div>
+                   <img src="/images/logo-retina.png" class="w-16 h-10 xs:w-24 xs:h-16 mt-10 ml-6 xl:ml-12">
+               </div>
+               <div class="flex flex-row gap-11 xs:gap-16 ml-28 xs:ml-48 md:ml-64 md:gap-24 lg:ml-[550px] xl:ml-[650px] xl:gap-36">
+                   <div class="mt-[-55px] text-[10px] xs:text-sm xl:text-[17px] ">
+                   <ul>
+                       <li>Shop All</li>
+                       <li>Makeup</li>
+                       <li>Skin Care</li>
+                       <li>Hair Care</li>
+                       <li>About</li>
+                       <li>Contact</li>
+                   </ul>
+               </div>
+               <div class="mt-[-55px] text-[10px] xs:text-sm xl:text-[17px]">
+                   <ul>
+                       <li>Refund Policy</li>
+                       <li>Terms & Conditions</li>
+                       <li>FAQ</li>
+                       <li>Privacy Policy</li>
+                   </ul>
+               </div>
+               
+               <div class="mt-[-55px] text-[10px] xs:text-sm xl:text-[17px] flex gap-3 pr-3">
+                   <i class="fa-brands fa-square-facebook"></i>
+                   <i class="fa-brands fa-twitter"></i>
+                   <i class="fa-brands fa-square-instagram"></i>
+               </div>
+            </div>
+               
+           
+           <hr class="w-full h-0.5 bg-[#e9d2d9] mt-3">
+           <div>
+               <h4 class="[#text-ae9283] ml-5 mt-4 text-[10px] xs:text-sm ">Copyright @ 2022 Be Bold | Powered by Be Bold</h4>
+           </div> 
+       </div>
+    </div>
+
+    
+    
+</body>
+</html>
