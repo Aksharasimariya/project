@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+        extend: {
+    screens: {
+      'xs': '576px',
+      'sm':'640px',
+      'md': '768px',
+      'lg':'1024px',
+      'xl':'1280px',
+      '2xl':'1536px'
+
+      // => @media (min-width: 992px) { ... }
+             },
+         },
+        },
+        } 
+    </script>     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        nav{
+         background-color: white;
+         height: 50px;        
+        }
+        nav ul{
+        
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size:large;
+            font-weight:600;
+             }
+         
+        nav a{
+            padding:0 5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            color: black;
+        }
+        nav a:hover{
+            background-color: rgb(149, 149, 200);
+        }
+        .sidebar{
+            position: fixed;
+            top:0;
+            right: 0;
+            height: 100vh;
+            width: 250px;
+            z-index: 999;
+            background-color: rgba(247, 240, 240, 0.47);
+            backdrop-filter: blure(10px);
+            box-shadow: -10px 0 10px  rgba(0,0,0,0.1);
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        
+        @media(max-width: 576px){
+            .hideonmobile{
+                display:none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#ffffff]">
+
+    <nav class=" xs:w-[100%] xs:h-[60px] flex justify-between px-10">
+        <img src="../images/logo-retina.png" class=" size-8 mt-2 xs:size-12 w-32 xs:ml-4 xl:ml-9">
+        <ul class="sidebar xs:text-2xl">
+            <li onclick=hidesidebar()><a href="#"><i class="fa-sharp fa-solid fa-xmark size-7 "></i></a>
+            <li><a href="#">Home</a></li>
+            <li><a href="../src/about-page.html">About Us</a></li>
+            <li><a href="../src/contact-page.html">Contact</a></li>
+        </ul>
+        <ul  class=" flex-row justify-between hidden md:flex">
+            
+            <li class="hideonmobile"><a href="#">Home</a></li>
+            <li class="hideonmobile"><a href="about-page.html">About Us</a></li>
+            <li class="hideonmobile"><a href="contact-page.html">Contact</a></li>
+        
+        </ul>
+        <i onclick=showsidebar() class="fa-solid fa-bars text-[25px] mt-2 xs:text-2xl xs:mt-3 md:hidden "></i>
+            <div class="hidden md:block xs:mt-3 xs:text-xl xl:mr-9"> 
+                <i class="fa-solid fa-user xs:mr-3"></i>
+                <span class="font-bold ">0.00</span>
+                <i class="fa-solid fa-bag-shopping"></i>
+            </div>
+        </div>  
+    </nav>
+
+    <script>
+        function showsidebar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+        function hidesidebar(){
+             const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+        }
+    </script>
+
+    <div class="ml-5 mr-5">
+          <div class=" w-full h-[300px] xs:w-full xs:h-[450px] bg-[url('../images/hero1.jpg')] bg-center bg-cover bg-no-repeat xl:h-[500px]" > 
+     
+       <div class="content p-20 pl-2 xs:p-36 xs:pl-4 lg:p-24 lg:pl-6 xl:p-40 ">
+        <h2 class=" text-[5px] xs:text-[10px] text-[#fefdfe] md:text-[15px] ">NEW IN TOWN</h2>
+        <h1 class="text-xl xs:text-3xl text-[#fefdfe] md:text-[40px] md:mt-1 lg:text-[50px] lg:mt-2 xl:text-[53px] xl:mt-4">The New Beauty</h1>
+        <h1 class=" text-xl xs:text-3xl text-[#fefdfe] md:text-[40px] md:mt-1 lg:text-[50px] lg:mt-4 xl:text-[53px] xl:mt-8">  Collection</h1>
+        <h5 class=" text-[6px] xs:text-[12px] text-[#fefdfe] md:text-[15px] md:mt-1 lg:text-[17px] lg:mt-3 xl:text-[21px] xl:mt-6">This new collection brings with it the most </h5> 
+        <h5 class="text-[6px] xs:text-[12px] text-[#fefdfe] md:text-[15px] md:mt-1 lg:text[17px] lg:mt-1 xl:text-[21px] ">exciting lorem ipsum dolor sit amet.</h5>
+        <div class=" w-14 h-4 xs:w-20 xs:h-5 ml-3 bg-[#fefdfe] mt-5 ">
+            <p class="text-[8px] pt-1 xs:text-[13px] text-center">SHOP NOW</p>
+         </div>
+     </div>
+    </div>
+</div>
+
+     
+    
+      <div class="logo flex flex-row justify-start flex-wrap gap-12 ml-5 mt-4 sm:gap-14 sm:ml-7 md:gap-16 md:ml-12 lg:gap-28 lg:ml-12 xl:gap-40 2xl:ml-[150px]">
+        <div>
+            <img src="../images/logo-707.png" class=" border-[#f9f3f5] w-10 h-9 xs:w-12 xs:h-11 border-[0.5px] md:w-14 md:h-12 lg:h-14 lg:w-16 xl:w-18 xl:h-16" >
+        </div>
+      
+      <div>
+        <img src="../images/logo-505.png" class=" border-[#f9f3f5] border-[0.5px] w-4 h-7 xs:w-12 xs:h-11 md:w-14 lg:h-14 lg:w-16 xl:w-18 xl:h-16" >
+    </div>
+    <div>
+        <img src="/images/logo-606.png" class=" border-[#f9f3f5] border-[0.5px] w-4 h-7 xs:w-12 xs:h-11 md:w-14 lg:h-14 lg:w-16 xl:w-18 xl:h-16" >
+    </div>
+    <div>
+        <img src="/images/logo-404.png" class=" border-[#f9f3f5] border-[0.5px] w-4 h-7 xs:w-12 xs:h-11 md:w-14  lg:h-14 lg:w-16 xl:w-18 xl:h-16" >
+    </div>
+    <div>
+        <img src="/images/logo-303.png" class=" border-[#f9f3f5] border-[0.5px] w-4 h-7 xs:w-12 xs:h-11 md:w-14 lg:h-14 lg:w-16 xl:w-18 xl:h-16" >
+    </div>
+    <div>
+        <img src="/images/logo-202.png" class=" border-[#f9f3f5] border-[0.5px] w-4 h-7 xs:w-12 xs:h-11 md:w-14  lg:h-14 lg:w-16 xl:w-18 xl:h-16" >
+    </div>
+</div>
+
+<div class="dot ">
+    <ul class="list-disc flex flex-row justify-center gap-9 xs:ml-10 text-[#c8c8c8] mt-4 xl:mt-7 xl:gap-9">
+        <li></li>
+        <li class="text-black"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    
+    <div class="middle">
+        <div class="trending-now pl-2 xs:pl-4 md:pl-[100px] lg:pl-[250px] xl:pl-[350px] ">
+            <h4 class="text-[10px] ml-36 xs:ml-60 mt-4" >POPULAR PRODUCTS</h4>
+            <h1 class="text-[30px] mt-1 ml-24 xs:ml-48">Trending Now</h1>
+        </div>
+        
+        <div class="flex flex-row justify-evenly ml-3 mr-4 xs:gap-2 xs:ml-2 xs:mr-2 xl:flex xl:flex-row xl:justify-evenly ">
+           <div class="image-container"> 
+              <img src="/images/product-04-a.jpg" class="w-60 h-40 xs:w-80 xs:h-60 mt-4 ">
+            <div class="price flex-row items-start ">
+            <div class="flex flex-row text-[14px] m-1 xs:ml-4 mt-3 text-[#5d5a5b]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>  
+            <div class="">
+                <h5 class="ml-2 xs:ml-4 text-[10px] mt-1">Product Name 1</h5>
+                <h5 class="ml-2 xs:ml-4 text-[10px] mt-1">97500 $59.00</h5>
+            </div>
+          </div>
+        </div>
+            <div class="image-container2">
+            <div>
+                <img src="/images/product-14-a.jpg" class="w-60 h-40 xs:w-80 xs:h-60 mt-4 ">
+            </div>
+            <div class="flex-row items-start ">
+            <div class="flex flex-row text-[14px] m-1 xs:ml-4 mt-3  text-[#5d5a5b]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+             </div>
+             <div>
+                <h5 class="ml-2 xs:ml-4 text-[10px] mt-1">Product Name 10</h5>
+                <h5 class="ml-2 xs:ml-4 text-[10px] mt-1">97500 $59.00</h5>
+                </div>
+            </div>
+            </div>
+            
+            <div class="image-container3">
+                <div>
+                    <img src="/images/product-09-a.jpg" class="w-60 h-40 xs:w-80 xs:h-60 mt-4 ">
+                </div>
+                <div class="flex flex-row text-[14px] m-1 xs:ml-4 mt-3  text-[#5d5a5b]">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                 </div>
+                 <div>
+                    <h5 class="ml-2 xs:ml-4 text-[10px] mt-1">Product Name 11</h5>
+                    <h5 class="ml-2 xs:ml-4 text-[10px] mt-1">97500 $59.00</h5>
+                 </div>
+            </div>
+
+            <div class="imagw-container4">
+                <div>
+                    <img src="/images/product-10-a.jpg" class="w-60 h-40 xs:w-80 xs:h-60 mt-4 ">
+                </div>
+                <div class="flex flex-row text-[14px] m-1 xs:ml-4 mt-3  text-[#5d5a5b]">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                 </div>
+                 <div>
+                    <h5 class="ml-2 xs:ml-4 text-[10px] mt-1">Product Name 12</h5>
+                    <h5 class="ml-2 xs:ml-4 text-[10px] mt-1">97500 $59.00</h5>
+                </div>
+            </div>
+    </div>
+    </div>
+
+
+    <div class="middle2">
+
+        <div class="trending-now pl-2 xs:pl-4 md:pl-[100px] lg:pl-[250px] xl:pl-[350px] ">
+            <h4 class="text-[10px] ml-44 xs:ml-60 mt-4" >Shop</h4>
+            <h1 class="text-[30px] mt-1 ml-28 xs:ml-48">Best Selling</h1>
+        </div>
+        
+        <div class="flex flex-row justify-evenly ml-3 mr-4 xs:gap-2 xs:ml-2 xs:mr-2 xl:flex xl:flex-row xl:justify-evenly ">
+           <div class="image-container"> 
+              <img src="/images/product-04-a.jpg" class="w-60 h-40 xs:w-80 xs:h-60 mt-4 ">
+            <div class="price flex-row items-start ">
+            <div class="flex flex-row text-[14px] m-1 xs:ml-4 mt-3 text-[#5d5a5b]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>  
+            <div class="">
+                <h5 class="ml-2 xs:ml-4 text-[10px] mt-1">Product Name 1</h5>
+                <h5 class="ml-2 xs:ml-4 text-[10px] mt-1">97500 $59.00</h5>
+            </div>
+          </div>
+        </div>
+            <div class="image-container2">
+            <div>
+                <img src="/images/product-14-a.jpg" class="w-60 h-40 xs:w-80 xs:h-60 mt-4 ">
+            </div>
+            <div class="flex-row items-start ">
+            <div class="flex flex-row text-[14px] m-1 xs:ml-4 mt-3  text-[#5d5a5b]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+             </div>
+             <div>
+                <h5 class="ml-2 xs:ml-4 text-[10px] mt-1">Product Name 10</h5>
+                <h5 class="ml-2 xs:ml-4 text-[10px] mt-1">97500 $59.00</h5>
+                </div>
+            </div>
+            </div>
+            
+            <div class="image-container3">
+                <div>
+                    <img src="/images/product-09-a.jpg" class="w-60 h-40 xs:w-80 xs:h-60 mt-4 ">
+                </div>
+                <div class="flex flex-row text-[14px] m-1 xs:ml-4 mt-3  text-[#5d5a5b]">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                 </div>
+                 <div>
+                    <h5 class="ml-2 xs:ml-4 text-[10px] mt-1">Product Name 11</h5>
+                    <h5 class="ml-2 xs:ml-4 text-[10px] mt-1">97500 $59.00</h5>
+                 </div>
+            </div>
+
+            <div class="imagw-container4">
+                <div>
+                    <img src="/images/product-10-a.jpg" class="w-60 h-40 xs:w-80 xs:h-60 mt-4 ">
+                </div>
+                <div class="flex flex-row text-[14px] m-1 xs:ml-4 mt-3  text-[#5d5a5b]">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                 </div>
+                 <div>
+                    <h5 class="ml-2 xs:ml-4 text-[10px] mt-1">Product Name 12</h5>
+                    <h5 class="ml-2 xs:ml-4 text-[10px] mt-1">97500 $59.00</h5>
+                </div>
+            </div>
+    </div>
+       
+    </div>
+</div>
+   
+<div class="ml-5 mr-5">
+
+    <div class=" w-full h-[300px] xs:w-full xs:h-[450px] bg-[url('../images/bg-03.jpg')] bg-center bg-cover bg-no-repeat xl:h-[500px]" > 
+     
+        <div class="content mt-9 p-20 pl-2 xs:p-36 xs:pl-4 lg:p-24 lg:pl-6 xl:p-40 ">
+         <h2 class=" text-[5px] xs:text-[10px] text-[#fefdfe] md:text-[15px] ">NEW COLLECTION</h2>
+         <h1 class="text-sm xs:text-3xl text-[#fefdfe] md:text-[40px] md:mt-1 lg:text-[50px] lg:mt-2 xl:text-[53px] xl:mt-4">The beauty
+            collection</h1>
+         <h1 class=" text-sm xs:text-3xl text-[#fefdfe] md:text-[40px] md:mt-1 lg:text-[50px] lg:mt-4 xl:text-[53px] xl:mt-8"> that makes all the</h1>
+         <h5 class=" text-[8px] xs:text-[12px] text-[#fefdfe] md:text-[15px] md:mt-1 lg:text-[17px] lg:mt-3 xl:text-[21px] xl:mt-6">difference!</h5> 
+         <h5 class="text-[8px] xs:text-[12px] text-[#fefdfe] md:text-[15px] md:mt-1 lg:text[17px] lg:mt-1 xl:text-[21px] ">Aliquam vul utate nuncvitae susci Itali ue</h5>
+         <h5 class="text-[12px] text-[#fefdfe] md:text-[15px] md:mt-1 md:ml-6 lg:text[17px] lg:ml-8 lg:mt-1 xl:text-[21px] "> - libero ardu endre sapien.</h5>
+         <div class=" w-14 h-4 xs:w-20 xs:h-5 ml-3 bg-[#fefdfe] mt-5 ">
+             <p class="text-[8px] pt-1 xs:text-[13px] text-center">SHOP NOW</p>
+          </div>
+      </div>
+     </div>
+ 
+
+</div>
+<div class="feedback flex flex-row">
+    <div class=" mt-5 xs:mt-10 xs:mt-20 ml-10 xl:ml-20 lg:ml-32">
+        <h5 class="text-[10px] text-[#8fa0bb] lg:text-[15px]">JANE OLIVER</h5>
+        <h1 class="text-[17px] xs:text-3xl sm:text-[20px] md:text-xl lg:text-2xl lg:text-3xl">Lorem i sum dolor sit amet,</h1>
+        <h1 class="text-[17px] xs:text-3xl sm:text-[20px] md:text-xl lg:text-3xl">consectetur adi iscin elit.</h1>
+        <h1 class="text-[17px] xs:text-3xl sm:text-[20px] md:text-xl lg:text-3xl">Phasellus posuere...</h1>
+        <hr class="w-14 h-0.5 bg-[#e9d2d9] mt-3 lg:mt-6 ">
+    </div>
+    
+    <div class="ml-6 lg:ml[200] xl:ml-[200px] lg:ml-[100px]">
+        <div class="mt-5 xs:mt-10 xs:mt-20 ">
+            <div class="flex flex-row text-[#f5a754] text-[12px] xs:text-sm">
+                <i class="fa-solid fa-star "></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+             </div>
+             <div class="mt-4">
+                <h4 class="text-[13px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
+                <h4 class="text-[13px]">Phasellus posuere tincidunt purus, eu consectetur eros sodales</h4>
+                <h4 class="text-[13px]">nec. Maecenas ac erat pretium, ultricies nibh quis, mattis</h4>
+                <h4 class="text-[13px]">massa.</h4>
+                <h4 class="mt-4 xs:mt-7 text-[#8fa0bb]">JAMES OLIVLR</h4>
+                <hr class="w-14 h-0.5 bg-[#e9d2d9] mt-3">
+             </div>
+     
+             <div class="flex flex-row text-[#f5a754] text-[12px] xs:text-sm mt-4 xs:mt-7">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+             </div>
+             <div class="mt-4">
+                <h4 class="text-[13px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
+                <h4 class="text-[13px]">Phasellus posuere tincidunt purus, eu consectetur eros sodales</h4>
+                <h4 class="text-[13px]">nec. Maecenas ac erat pretium, ultricies nibh quis, mattis</h4>
+                <h4 class="text-[13px]">massa.</h4>
+                <h4 class="mt-4 xs:mt-7 text-[#8fa0bb]">JAMES OLIVLR</h4>
+                <hr class="w-14 h-0.5 bg-[#e9d2d9] mt-3">
+             </div>
+        </div>
+
+        <div class="flex flex-row text-[#f5a754] text-[12px] xs:text-sm mt-7">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+         </div>
+         
+         <div class="mt-4">
+            <h4 class="text-[13px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
+            <h4 class="text-[13px]">Phasellus posuere tincidunt purus, eu consectetur eros sodales</h4>
+            <h4 class="text-[13px]">nec. Maecenas ac erat pretium, ultricies nibh quis, mattis</h4>
+            <h4 class="text-[13px]">massa.</h4>
+            <h4 class="mt-4 xs:mt-7 text-[#8fa0bb]">JAMES OLIVLR</h4>
+            <hr class="w-14 h-0.5 bg-[#e9d2d9] mt-3">
+         </div>
+    </div>
+    </div>
+
+    <div class="flex ">
+        <div class="hero w-1/2  h-40 xs:h-56 lg:h-64 mt-8 bg-[url('../images/bg-001.jpg')] bg-center bg-cover bg-no-repeat xl:h-[500px] ml-3" > 
+            <div class="content pt-9 pl-4 lg:pl-3 xl:p-10 xl:pt-[80px] ">
+             <h2 class="text-[5px] text-[#fefdfe] md:text-[15px] md:ml-6 lg:ml-8 lg:text-[10px] ">NEW COLLECTION</h2>
+             <h1 class="text-sm xs:text-xl text-[#fefdfe] md:text-3xl md:mt-1 md:ml-6 lg:text-3xl lg:ml-8 xl:text-[45px] xl:mt-4">Awesome</h1>
+             <h1 class="text-sm xs:text-xl text-[#fefdfe] md:text-3xl md:mt-1 md:ml-6 lg:text-3xl lg:ml-8 xl:text-[45px] xl:mt-6">Makeup Kit</h1>
+             <h1 class="text-sm xs:text-xl text-[#fefdfe] md:text-3xl md:mt-1 md:ml-6 lg:text-3xl lg:ml-8 xl:text-[45px] xl:mt-6"> Gift Sets</h1>
+             <h5 class="text-[6px] xs:text-[11px] text-[#fefdfe] md:text-[15px] md:mt-1 md:ml-6 lg:text-[17px] lg:ml-8 lg:mt-3 xl:text-[21px] xl:mt-6">Find our uni ue style. </h5> 
+             <div class="w-9 h-2 xs:w-20 xs:h-5 bg-[#fefdfe] mt-5 md:ml-6 lg:mt-2 lg:ml-8">
+                 <p class="text-[6px] xs:text-[13px] text-center">SHOP NOW</p>
+              </div>
+          </div>
+    </div>
+
+    <div class="hero w-1/2 h-40 xs:h-56 lg:h-64 mt-8 bg-[url('../images/bg-02.jpg')] bg-center bg-cover bg-no-repeat xl:h-[500px] ml-3 mr-3" > 
+        <div class="content pt-9 pl-4 lg:pl-3 xl:p-10 xl:pt-[80px] ">
+         <h2 class="text-[5px] text-[#fefdfe] md:text-[15px] md:ml-6 lg:ml-8 lg:text-[10px]">NEW COLLECTION</h2>
+         <h1 class="text-[12px] xs:text-xl text-[#fefdfe] md:text-3xl md:mt-1 md:ml-6 lg:text-3xl lg:ml-8 xl:text-[45px] xl:mt-4">The Ultimate</h1>
+         <h1 class="text-sm xs:text-xl text-[#fefdfe] md:text-3xl md:mt-1 md:ml-6 lg:text-3xl lg:ml-8 xl:text-[45px] xl:mt-6">Skincare</h1>
+         <h1 class="text-sm xs:text-xl text-[#fefdfe] md:text-3xl md:mt-1 md:ml-6 lg:text-3xl lg:ml-8 xl:text-[45px] xl:mt-6">Regime </h1>
+         <h5 class="text-[6px] xs:text-[11px] text-[#fefdfe] md:text-[15px] md:mt-1 md:ml-6 lg:text-[17px] lg:ml-8 lg:mt-3 xl:text-[21px] xl:mt-6">Find our uni ue style. </h5> 
+         <div class="w-9 h-2 xs:w-20 xs:h-5 bg-[#fefdfe] mt-5 md:ml-6 lg:mt-2 lg:ml-8">
+             <p class="text-[6px] xs:text-[13px] text-center">SHOP NOW</p>
+          </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="flex flex-row ">
+    <div >
+        <h3 class="text-[8px] mt-10 xs:text-[10px] ml-3 lg:text-[20px]  lg:ml-7 text-gray-500 xs:text-[#acaab0]">WHY CHOOSE US</h3>
+        <hr class="w-14 h-0.5 ml-3 bg-[#e9d2d9] mt-3 lg:w-20 lg:ml-5 ">
+    </div>
+
+        <div class="flex ml-1 xs:ml-4 lg:ml-16 xl:ml-32  ">
+            <div class= "mt-10 w-8 h-8 border-white border-2 bg-[#cd9cb2] rounded-full">
+                <i class="fa-solid fa-truck text-[10px] text-white mt-2 ml-1"></i>
+            </div>
+            <div class="ml-2 mt-7 mr-2 ">
+                <h1 class="text-[11px] xs:text-xl mt-3">Fast Delivery</h1>
+                <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">Lorem ipsum dolor sit amet,</h4>
+                <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">consectetur adipiscing elit. Ut</h4>
+                <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">elit tellus, luctus nec</h4>
+                <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">ullamcorper mattis.</h4>
+            </div>
+        </div>
+
+        <div class="flex lg:ml-10 xl:ml-20">
+            <div class= "mt-10 w-8 h-8 border-white border-2 bg-[#cd9cb2] rounded-full">
+                <i class="fa-solid fa-cart-flatbed text-[10px] text-white mt-2 ml-1"></i>
+            </div>
+            <div class="ml-2 mt-7 mr-2">
+                <h1 class="text-[11px] xs:text-xl mt-3">Free Shipping</h1>
+                <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">Lorem ipsum dolor sit amet,</h4>
+                <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">consectetur adipiscing elit. Ut</h4>
+                <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">elit tellus, luctus nec</h4>
+                <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">ullamcorper mattis.</h4>
+            </div>
+        </div>
+
+        <div class="flex lg:ml-10 xl:ml-20">
+            <div class= "mt-10 w-8 h-8 border-white border-2 bg-[#cd9cb2] rounded-full">
+                <i class="fa-solid fa-left-long text-[10px] text-white mt-2 ml-1"></i>
+            </div>
+            <div class="ml-2 mt-7 mr-2">
+                <h1 class="text-[11px] xs:text-xl mt-3">Easy Returns</h1>
+                <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">Lorem ipsum dolor sit amet,</h4>
+                <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">consectetur adipiscing elit. Ut</h4>
+                <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">elit tellus, luctus nec</h4>
+                <h4 class="text-[#6d6b6f] text-[9px] xs:text-sm">ullamcorper mattis.</h4>
+            </div>
+        </div>
+     </div>
+      
+     <div class="ml-5 mr-5">
+     <div class="w-full h-72 bg-[#f6edf0] border-[#ebdde2] border-1 mt-9 ">
+        <div class="ml-5">
+            <h1 class="text:sm xs:text-2xl">Subscribe to our newsletter</h1>
+        </div>
+        <hr class="w-full h-0.5 bg-[#e9d2d9] mt-3">
+        <div>
+            <img src="/images/logo-retina.png" class="w-16 h-10 xs:w-24 xs:h-16 mt-10 ml-6 xl:ml-12">
+        </div>
+        <div class="flex flex-row gap-11 xs:gap-16 ml-28 xs:ml-48 md:ml-64 md:gap-24 lg:ml-[550px] xl:ml-[650px] xl:gap-36">
+            <div class="mt-[-55px] text-[10px] xs:text-sm xl:text-[17px] ">
+            <ul>
+                <li>Shop All</li>
+                <li>Makeup</li>
+                <li>Skin Care</li>
+                <li>Hair Care</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+        <div class="mt-[-55px] text-[10px] xs:text-sm xl:text-[17px]">
+            <ul>
+                <li>Refund Policy</li>
+                <li>Terms & Conditions</li>
+                <li>FAQ</li>
+                <li>Privacy Policy</li>
+            </ul>
+        </div>
+        
+        <div class="mt-[-55px] text-[10px] xs:text-sm xl:text-[17px] flex gap-3 pr-3">
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-square-instagram"></i>
+        </div>
+     </div>
+        
+    
+    <hr class="w-full h-0.5 bg-[#e9d2d9] mt-3">
+    <div>
+        <h4 class="[#text-ae9283] ml-5 mt-4 text-[10px] xs:text-sm ">Copyright @ 2022 Be Bold | Powered by Be Bold</h4>
+    </div> 
+</div>
+</div>
+
+</body>
+</html>
