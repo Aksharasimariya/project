@@ -15,10 +15,14 @@
       'sm':'640px',
       'md': '768px',
       'lg':'1024px',
-      'xl':'1280px'
+      'xl':'1280px',
+      '2xl':'1496px'
 
       // => @media (min-width: 992px) { ... }
              },
+             scale: {
+        '100': '1.1',
+      },
          },
         },
         } 
@@ -72,19 +76,19 @@
 </head>
 <body class="bg-[#ffffff]">
 
-    <nav class=" xs:w-[100%] xs:h-[60px] flex justify-between px-10">
-        <img src="../images/logo-retina.png" class=" size-8 mt-2 xs:size-12 w-28 xs:w-32 xs:ml-4 xl:ml-9">
+    <nav class=" xs:w-[100%] xs:h-[60px] 2xl:w-[100%] flex justify-between px-10">
+        <img src="../images/logo-retina.png" class=" size-8 mt-2 xs:size-12 w-28 xs:w-32 xs:ml-4 xl:ml-9 ">
         <ul class="sidebar xs:text-2xl">
-            <li onclick=hidesidebar()><a href="#"><i class="fa-sharp fa-solid fa-xmark size-7 "></i></a>
-            <li><a href="#">Home</a></li>
-            <li><a href="../src/about-page.html">About Us</a></li>
-            <li><a href="../src/contact-page.html">Contact</a></li>
+            <li onclick=hidesidebar()><a href="#"><i class="fa-sharp fa-solid fa-xmark size-7"></i></a>
+            <li><a href="home-page.html">Home</a></li>
+            <li><a href="about-page.html">About Us</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
         <ul  class=" flex-row justify-between hidden md:flex">
             
-            <li class="hideonmobile"><a href="#">Home</a></li>
+            <li class="hideonmobile"><a href="home-page.html">Home</a></li>
             <li class="hideonmobile"><a href="about-page.html">About Us</a></li>
-            <li class="hideonmobile"><a href="contact-page.html">Contact</a></li>
+            <li class="hideonmobile"><a href="#">Contact</a></li>
         
         </ul>
         <i onclick=showsidebar() class="fa-solid fa-bars text-[25px] mt-2 xs:text-2xl xs:mt-3 md:hidden "></i>
@@ -95,10 +99,20 @@
             </div>
         </div>  
     </nav>
+    <script>
+        function showsidebar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+        function hidesidebar(){
+             const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+        }
+    </script>
 
         
         <div class="ml-5 mr-5">
-            <div class="hero w-[560px] xs:w-full h-72 xs:h-64 bg-[url('../images/bg-06.jpg')] bg-center bg-cover bg-no-repeat xl:h-[500px]" >       
+            <div class="hero w-[550px] ml-2 xs:w-full h-72 xs:h-64 bg-[url('../images/bg-06.jpg')] bg-center bg-cover bg-no-repeat xl:h-[500px]" >       
                <div class="content pt-28 pl-9 lg:pl-20 xl:pt-[200px] xl:pl-[150px] ">
                   <h2 class="text-[10px] pl-2 text-[#fefdfe] md:text-[15px] ">CET IN TOUCH</h2>
                   <h1 class="text-4xl text-[#fefdfe] md:text-[40px] md:mt-1 lg:text-[50px] lg:mt-2 xl:text-[53px] xl:mt-4">Message Us</h1>
@@ -107,48 +121,48 @@
         </div>   
         
         
-        <div class=" xs:w-1\2 h-20 flex flex-row justify-between md:ml-12 ml-9 xs:ml-6">
+        <div class=" w-[550px] 2xl:w-[1200px] 2xl:h-[200px] 2xl:ml-20 xs:w-1\2 h-20 flex flex-row justify-between md:ml-12 ml-9 xs:ml-6">
          <div class="md:mt-8 mt-10 xs:mt-20 mr-6 lg:ml-7 xl:ml-24 xl:mt-16 md:w-[700px]">
-            <h1 class="text-xl xl:text-2xl">Contact Us</h1>
-            <h1 class="text-[10px] xl:text-[13px] mt-3 ">Lorem i sum dolor sit amet, consectetur</h1>
-            <h1 class="text-[10px] xl:text-[13px]">dipiscing elit. Ut id leo tempor, congue justo</h1>
-            <h5 class="text-[10px] xl:text-[13px]">at, lobortis orci.</h5>
+            <h1 class="text-xl xl:text-2xl 2xl:text-4xl">Contact Us</h1>
+            <h1 class="text-[10px] xl:text-[13px] 2xl:text-[18px] mt-3 ">Lorem i sum dolor sit amet, consectetur</h1>
+            <h1 class="text-[10px] xl:text-[13px] 2xl:text-[18px]">dipiscing elit. Ut id leo tempor, congue justo</h1>
+            <h5 class="text-[10px] xl:text-[13px] 2xl:text-[18px]">at, lobortis orci.</h5>
 
                  <div class="flex items-center gap-2">
-                  <i class="fa-solid fa-location-dot text-[8px] xl:text-[10px] "></i>
+                  <i class="fa-solid fa-location-dot text-[8px] xl:text-[10px] 2xl:text-[15px]"></i>
                   <div>
-                      <h3  class="text-[10px] font-medium mt-3 xl:text-[13px]">123 Fifth Avenue, New York, NY</h3>
-                      <h3 class="text-[10px] font-medium">10160</h3>
+                      <h3  class="text-[10px] font-medium mt-3 xl:text-[13px] 2xl:text-[15px] 2xl:mt-4">123 Fifth Avenue, New York, NY</h3>
+                      <h3 class="text-[10px] font-medium 2xl:text-[15px]">10160</h3>
                   </div>
                 </div>
         
                 <div class="flex items-end gap-2">
-                    <i class="fa-solid fa-envelope text-[8px] xl:text-[10px] "></i>
+                    <i class="fa-solid fa-envelope text-[8px] xl:text-[10px] 2xl:text-[15px]"></i>
                     <div>
-                        <h3 class="text-[10px] font-medium mt-3 xl:text-[13px]">contact@info.com</h3>
+                        <h3 class="text-[10px] font-medium mt-3 xl:text-[13px] 2xl:text-[15px]">contact@info.com</h3>
                     </div>
                   </div>
                  
                   <div class="flex items-end gap-2">
-                    <i class="fa-solid fa-phone  text-[8px] xl:text-[10px]"></i>
+                    <i class="fa-solid fa-phone  text-[8px] xl:text-[10px] 2xl:text-[15px]"></i>
                     <div>
-                        <h3 class="text-[10px] font-medium mt-5 xl:text-[13px]">9-334-7565-9787</h3>
+                        <h3 class="text-[10px] font-medium mt-5 xl:text-[13px] 2xl:text-[15px]">9-334-7565-9787</h3>
                     </div>
                   </div>
              </div>
     
-          <div class="md:w-[600px] w-1\2 h-72 mt-4 mr-5 border-white bg-[#f6edf0] mr-3 lg:w-[600px] xl:w-[600px] xl:h-[300px] ">
+          <div class="md:w-[600px] w-1\2 h-72 mt-4 mr-5 border-white bg-[#f6edf0] mr-3 lg:w-[600px] xl:w-[600px] xl:h-[300px] 2xl:h-[350px]">
             <div class="ml-7 xl:ml-20 xl:mt-10">
-            <form action="" method="" class="pt-4">
+            <form action="" method="" class="pt-4 ">
                 name:-   
-               <br> <input class="mb-3" type="text" name="" placeholder="Enter your first name" id="some" /> 
+               <br> <input class="mb-3 " type="text" name="" placeholder="Enter your first name" id="some" /> 
                <input class="" type="text" name="" placeholder="Enter your Last name" id="some" />
                <br> Email:- 
                <br> <input class="mb-3" type="email"name="" id="" placeholder="Enter your email" required />  
                <br> Massage:- 
                <br> <textarea  class="mb-3" type="text" name="addinfo"  id="addinfo" placeholder="optional"> </textarea>
                <br> <input class="" type="button" name="" id="" value=""/>
-               <button class="bg-black text-white">SEND</button>
+               <button class="bg-black text-white 2xl:h-6 2xl:w-14">SEND</button>
             </form>
         </div>
         </div>
@@ -158,7 +172,7 @@
          </div>
      
          <div class="ml-6 xs:ml-7 xs:mr-5 lg:ml-3 lg:mr-3 md:ml-3 md:mr-3 ">
-            <div class="w-[550px] h-80 bg-[#f6edf0] border-[#ebdde2] border-1 mt-9 lg:mt-6 md:w-[700px] lg:w-[1000px] xl:w-[1250px]">
+            <div class="w-[550px] h-80 bg-[#f6edf0] border-[#ebdde2] border-1 mt-9 lg:mt-6 md:w-[700px] lg:w-[1000px] xl:w-[1250px] 2xl:w-[1500px] 2xl:mb-4">
                <div class="ml-5"> 
                    <h1 class="text-2xl">Subscribe to our newsletter</h1>
                </div>
